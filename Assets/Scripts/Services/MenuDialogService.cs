@@ -2,7 +2,7 @@
 
 public class MenuDialogService
 {
-    public static void MainMenuDialog()
+    public static void ShowMainMenuDialog()
     {
         Action actionConfirm = null;
         actionConfirm = () => SceneManagerService.LoadPlayScene();
