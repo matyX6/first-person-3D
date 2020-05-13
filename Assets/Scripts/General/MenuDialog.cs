@@ -27,5 +27,6 @@ public class MenuDialog : MonoBehaviour
 
     public void DeclineAction()
     {
+        Application.Quit();
     }
 }
