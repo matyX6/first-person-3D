@@ -2,26 +2,21 @@
 
 public class MenuDialogService
 {
+    public static void HideDialog()
+    {
+        MenuDialogContainer.Instance.gameObject.SetActive(false);
+    }
+
     public static void ShowMainMenuDialog()
     {
         Action actionConfirm = null;
         actionConfirm = () => SceneManagerService.LoadPlayScene();
 
         MenuDialogContainer.Instance.ShowDialog(
-            "Title",
+            "Open Your Eyes",
             "Play",
             "Quit",
             actionConfirm);
-    }
-
-    public static void TogglePauseMenuDialog()
-    {
-        bool dialogOpened = MenuDialogContainer.Instance.gameObject.activeSelf;
-
-        if (dialogOpened)
-            HideDialog();
-        else
-            ShowPauseMenuDialog();
     }
 
     private static void ShowPauseMenuDialog()
@@ -36,8 +31,37 @@ public class MenuDialogService
             actionConfirm);
     }
 
-    public static void HideDialog()
+    private static void ShowVictoryScreen()
     {
-        MenuDialogContainer.Instance.gameObject.SetActive(false);
+        Action actionConfirm = null;
+        actionConfirm = () => SceneManagerService.LoadPlayScene();
+
+        MenuDialogContainer.Instance.ShowDialog(
+            "Victory",
+            "Play Again",
+            "Quit",
+            actionConfirm);
+    }
+
+    private static void ShowDefeatScreen()
+    {
+        Action actionConfirm = null;
+        actionConfirm = () => SceneManagerService.LoadPlayScene();
+
+        MenuDialogContainer.Instance.ShowDialog(
+            "Defeat",
+            "Play Again",
+            "Quit",
+            actionConfirm);
+    }
+
+    public static void TogglePauseMenuDialog()
+    {
+        bool dialogOpened = MenuDialogContainer.Instance.gameObject.activeSelf;
+
+        if (dialogOpened)
+            HideDialog();
+        else
+            ShowPauseMenuDialog();
     }
 }
