@@ -1,9 +1,11 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class MenuDialog : MonoBehaviour
 {
+    [Inject] private readonly GamePauseEventDispatcher _gamePauseEventDispatcher = null;
     [SerializeField] private Text _titleDialog = null;
     [SerializeField] private Text _textButtonConfirm = null;
     [SerializeField] private Text _textButtonDecline = null;
@@ -28,5 +30,15 @@ public class MenuDialog : MonoBehaviour
     public void DeclineAction()
     {
         Application.Quit();
+    }
+
+    private void OnEnable()
+    {
+        _gamePauseEventDispatcher.NotifyGamePausedListeners();
+    }
+
+    private void OnDisable()
+    {
+        _gamePauseEventDispatcher.NotifyGameResumedListeners();
     }
 }
