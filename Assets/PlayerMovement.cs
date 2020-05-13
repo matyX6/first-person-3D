@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask _groundMask = ~0;
     [SerializeField] private float _speed = 12f;
     [SerializeField] private float _gravity = -9.81f;
+    [SerializeField] private float _jumpHeight = 3f;
     private Vector3 _velocity;
     bool isGrounded;
 
@@ -29,6 +30,11 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
 
         _controller.Move(move * _speed * Time.deltaTime);
+
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            _velocity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravity); //physics equation to jump a certain height
+        }                                                           //square root of jumpHeight
 
         _velocity.y += _gravity * Time.deltaTime;
 
