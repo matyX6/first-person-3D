@@ -8,7 +8,9 @@ public class GunShot : MonoBehaviour
     [SerializeField] private float _damage = 10f;
     [SerializeField] private float _range = 100f;
     [SerializeField] private Camera _fpsCamera = null;
-    [SerializeField] private ParticleSystem _shotFlash = null;
+    [SerializeField] private ParticleSystem _muzzleFlash = null;
+    [SerializeField] private GameObject _impactEffect = null;
+
 
     private void Update()
     {
@@ -19,13 +21,16 @@ public class GunShot : MonoBehaviour
     {
         if (Input.GetButtonDown(FireAxesName))
         {
-            _shotFlash.Play(); 
+            _muzzleFlash.Play(); 
 
             RaycastHit hit;
             if (Physics.Raycast(_fpsCamera.transform.position, _fpsCamera.transform.forward, out hit, _range))
             {
                 Debug.Log(hit.transform.name);
             }
+
+            GameObject impactEffect = Instantiate(_impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
+            Destroy(impactEffect, 2f);
         }
     }
 }
