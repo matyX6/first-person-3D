@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    private const string InteractAxesName = "Interact";
+
+
     [SerializeField] private float _range = 5f;
     [SerializeField] private Camera _fpsCamera = null;
 
@@ -21,6 +24,10 @@ public class PlayerInteraction : MonoBehaviour
             if (abstractInteractable != null)
             {
                 TooltipTextContainer.Instance.ShowTooltip(abstractInteractable.Tooltip);
+                if (Input.GetButtonDown(InteractAxesName))
+                {
+                    abstractInteractable.Interact();
+                }
                 return;
             }
         }
