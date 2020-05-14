@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class GunShot : MonoBehaviour
+public class GunShoot : MonoBehaviour
 {
     private const string FireAxesName = "Fire1";
 
@@ -10,7 +10,6 @@ public class GunShot : MonoBehaviour
     [SerializeField] private float _fireRate = 15f;
     [SerializeField] private Camera _fpsCamera = null;
     [SerializeField] private ParticleSystem _muzzleFlash = null;
-    [SerializeField] private GameObject _impactEffect = null;
     private float _nextTimeToFire = 0f;
 
 
@@ -36,9 +35,20 @@ public class GunShot : MonoBehaviour
         if (Physics.Raycast(_fpsCamera.transform.position, _fpsCamera.transform.forward, out hit, _range))
         {
             Debug.Log(hit.transform.name);
+            HitImpactEffect(hit);
         }
+    }
 
-        GameObject impactEffect = Instantiate(_impactEffect, hit.point, Quaternion.LookRotation(hit.normal));
-        Destroy(impactEffect, 2f);
+    private void HitImpactEffect(RaycastHit hit)
+    {
+        foreach (GameObject ie in PoolManager.Instance.ObjectList)
+        {
+            if (ie.activeInHierarchy == false)
+            {
+                ie.SetActive(true);
+                ie.transform.position = hit.point;
+                break;
+            }
+        }
     }
 }
