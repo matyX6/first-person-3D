@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class GunShoot : MonoBehaviour
 {
@@ -41,12 +42,21 @@ public class GunShoot : MonoBehaviour
 
     private void HitImpactEffect(RaycastHit hit)
     {
-        foreach (GameObject ie in PoolManager.Instance.ObjectList)
+        List<GameObject> impactEffects = PoolManager.Instance.ObjectList;
+        foreach (GameObject ie in impactEffects)
         {
             if (ie.activeInHierarchy == false)
             {
                 ie.SetActive(true);
                 ie.transform.position = hit.point;
+                break;
+            }
+            else if (impactEffects.IndexOf(ie) == impactEffects.Count - 1)
+            {
+                GameObject newImpactEffect = Instantiate(PoolManager.Instance.ObjectToPool);
+                newImpactEffect.transform.parent = PoolManager.Instance.transform;
+                newImpactEffect.SetActive(false);
+                impactEffects.Add(newImpactEffect);
                 break;
             }
         }

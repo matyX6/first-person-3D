@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectToPool: {fileID: 9150801777827840996, guid: 4447e12cc218cc84c8f161ed4a7fecf2,
     type: 3}
-  _poolCount: 30
+  _poolCount: 5
 --- !u!1 &134311542
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,8 +958,6 @@ MonoBehaviour:
   _fireRate: 15
   _fpsCamera: {fileID: 661953789}
   _muzzleFlash: {fileID: 198234347712325411}
-  _impactEffect: {fileID: 9150801777827840996, guid: 4447e12cc218cc84c8f161ed4a7fecf2,
-    type: 3}
 --- !u!1 &1356241131
 GameObject:
   m_ObjectHideFlags: 0
