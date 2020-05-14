@@ -31,9 +31,6 @@ public class PlayerInteraction : MonoBehaviour
                 return;
             }
         }
-        else
-        {
-            TooltipTextContainer.Instance.HideTooltip();
-        }
+        TooltipTextContainer.Instance.HideTooltip();
     }
 }
