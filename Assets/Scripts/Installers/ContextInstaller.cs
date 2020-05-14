@@ -1,6 +1,6 @@
 ﻿using Zenject;
 
-public class PlaySceneInstaller : MonoInstaller<PlaySceneInstaller>
+public class ContextInstaller : MonoInstaller<ContextInstaller>
 {
     public override void InstallBindings()
     {
