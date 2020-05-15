@@ -3,22 +3,25 @@ using UnityEngine;
 
 public class Target : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float health = 100f;
+    [SerializeField] protected float _maxHealth = 100f;
+    [SerializeField] private float _hitScaleMultiplier = 1.3f;
+    protected float _currentHealth = 100f;
     private Vector3 _defaultScale = Vector3.one;
     private Vector3 _hitScale = Vector3.one;
 
 
-    private void Start()
+    protected virtual void Start()
     {
+        _currentHealth = _maxHealth;
         _defaultScale = transform.localScale;
         _hitScale = _defaultScale * 1.3f;
     }
 
-    public void TakeDamage(float damageAmount)
+    public virtual void TakeDamage(float damageAmount)
     {
-        health -= damageAmount;
+        _currentHealth -= damageAmount;
 
-        if (health <= 0f)
+        if (_currentHealth <= 0f)
             Die();
 
         AnimateDamageTaken();
