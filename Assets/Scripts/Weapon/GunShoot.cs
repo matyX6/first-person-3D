@@ -37,6 +37,13 @@ public class GunShoot : MonoBehaviour
         {
             Debug.Log(hit.transform.name);
             HitImpactEffect(hit);
+
+            IDamageable target = hit.transform.GetComponent<IDamageable>();
+
+            if (target != null)
+            {
+                target.TakeDamage(_damage);
+            }
         }
     }
 
