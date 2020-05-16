@@ -6,10 +6,14 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private RectTransform _healthBar = null;
     private float _currentHealth = 100f;
     private float _defaultHealthBarScaleX = 1f;
+    private bool _healthChangeEnabled = true;
 
 
     public void ChangeHealth(float changeAmount)
     {
+        if (!_healthChangeEnabled)
+            return;
+
         _currentHealth += changeAmount;
 
         if (_currentHealth <= 0f)
@@ -38,5 +42,6 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("You Died!");
+        _healthChangeEnabled = false;
     }
 }
