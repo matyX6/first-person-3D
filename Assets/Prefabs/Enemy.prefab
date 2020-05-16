@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 8490880885485566887}
   - component: {fileID: 8490880885485566885}
   m_Layer: 9
-  m_Name: enemy
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -801,6 +801,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 100
   _hitScaleMultiplier: 1.3
-  _meshRendererBody: {fileID: 0}
-  _meshRendererHead: {fileID: 0}
-  _hitColor: {r: 1, g: 0, b: 0, a: 1}
+  _meshRendererBody: {fileID: 8490880885288603164}
+  _meshRendererHead: {fileID: 1819307640}
+  _hitColor: {r: 1, g: 0.3647059, b: 0.3647059, a: 1}
