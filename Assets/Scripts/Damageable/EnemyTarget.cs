@@ -2,14 +2,15 @@
 
 public class EnemyTarget : Target
 {
-    [SerializeField] private MeshRenderer _meshRenderer = null;
+    [SerializeField] private MeshRenderer _meshRendererBody = null;
+    [SerializeField] private MeshRenderer _meshRendererHead = null;
     [SerializeField] private Color _hitColor = Color.red;
     private Color _defaultColor = Color.white;
 
     protected override void Start()
     {
         base.Start();
-        _defaultColor = _meshRenderer.material.color;
+        _defaultColor = _meshRendererBody.material.color;
     }
 
     public override void TakeDamage(float damageAmount)
@@ -22,6 +23,7 @@ public class EnemyTarget : Target
     {
         float damagePercentage = _currentHealth / _maxHealth;
         Color lerpedColor = Color.Lerp(_hitColor, _defaultColor, damagePercentage);
-        _meshRenderer.material.color = lerpedColor;
+        _meshRendererBody.material.color = lerpedColor;
+        _meshRendererHead.material.color = lerpedColor;
     }
 }
