@@ -10391,8 +10391,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   _speed: 12
-  _gravity: -20
-  _jumpHeight: 3
+  _gravity: -40
+  _jumpHeight: 4.5
 --- !u!114 &5427996027706802819
 MonoBehaviour:
   m_ObjectHideFlags: 0
