@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
+using Zenject;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [Inject] private readonly GamePauseEventDispatcher _gamePauseEventDispatcher = null;
     [SerializeField] private float _maxHealth = 100f;
     [SerializeField] private RectTransform _healthBar = null;
     private float _currentHealth = 100f;
@@ -41,7 +43,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("You Died!");
         _healthChangeEnabled = false;
+        _gamePauseEventDispatcher.NotifyPlayerDeadListeners();
+        MenuDialogService.ShowDefeatScreen();
     }
 }

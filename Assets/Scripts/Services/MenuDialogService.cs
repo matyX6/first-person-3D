@@ -19,19 +19,17 @@ public class MenuDialogService
             actionConfirm);
     }
 
-    private static void ShowPauseMenuDialog()
+    public static void TogglePauseMenuDialog()
     {
-        Action actionConfirm = null;
-        actionConfirm = () => SceneManagerService.LoadPlayScene();
+        bool dialogOpened = MenuDialogContainer.Instance.gameObject.activeSelf;
 
-        MenuDialogContainer.Instance.ShowDialog(
-            "Pause",
-            "Restart",
-            "Quit",
-            actionConfirm);
+        if (dialogOpened)
+            HideDialog();
+        else
+            ShowPauseMenuDialog();
     }
 
-    private static void ShowVictoryScreen()
+    public static void ShowVictoryScreen()
     {
         Action actionConfirm = null;
         actionConfirm = () => SceneManagerService.LoadPlayScene();
@@ -43,25 +41,27 @@ public class MenuDialogService
             actionConfirm);
     }
 
-    private static void ShowDefeatScreen()
+    public static void ShowDefeatScreen()
     {
         Action actionConfirm = null;
         actionConfirm = () => SceneManagerService.LoadPlayScene();
 
         MenuDialogContainer.Instance.ShowDialog(
-            "Defeat",
+            "You Died",
             "Play Again",
             "Quit",
             actionConfirm);
     }
 
-    public static void TogglePauseMenuDialog()
+    private static void ShowPauseMenuDialog()
     {
-        bool dialogOpened = MenuDialogContainer.Instance.gameObject.activeSelf;
+        Action actionConfirm = null;
+        actionConfirm = () => SceneManagerService.LoadPlayScene();
 
-        if (dialogOpened)
-            HideDialog();
-        else
-            ShowPauseMenuDialog();
+        MenuDialogContainer.Instance.ShowDialog(
+            "Pause",
+            "Restart",
+            "Quit",
+            actionConfirm);
     }
 }

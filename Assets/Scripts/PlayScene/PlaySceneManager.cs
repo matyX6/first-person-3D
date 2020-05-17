@@ -9,6 +9,7 @@ public class PlaySceneManager : MonoBehaviour
     [SerializeField] private PlayerMovement _playerMovement = null;
     [SerializeField] private MouseLook _mouseLook = null;
     [SerializeField] private GunShoot _gunShoot = null;
+    private bool _inputCheckEnabled = true;
 
 
     private void Awake()
@@ -16,12 +17,14 @@ public class PlaySceneManager : MonoBehaviour
         CursorService.HideAndLock();
         _gamePauseEventDispatcher.OnGamePaused += DisablePlayerComponents;
         _gamePauseEventDispatcher.OnGameResumed += EnablePlayerComponents;
+        _gamePauseEventDispatcher.OnPlayerDeath += DisableInputCheck;
     }
 
     private void OnDestroy()
     {
         _gamePauseEventDispatcher.OnGamePaused -= DisablePlayerComponents;
         _gamePauseEventDispatcher.OnGameResumed -= EnablePlayerComponents;
+        _gamePauseEventDispatcher.OnPlayerDeath -= DisableInputCheck;
     }
 
     private void Update()
@@ -31,7 +34,7 @@ public class PlaySceneManager : MonoBehaviour
 
     private void CheckForPauseInput()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && _inputCheckEnabled)
             MenuDialogService.TogglePauseMenuDialog();
     }
 
@@ -59,5 +62,10 @@ public class PlaySceneManager : MonoBehaviour
         }
 
         CursorService.ShowAndUnlock();
+    }
+
+    private void DisableInputCheck()
+    {
+        _inputCheckEnabled = false;
     }
 }
