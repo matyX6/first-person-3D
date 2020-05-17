@@ -4,20 +4,24 @@ using Zenject;
 public class PlaySceneManager : MonoBehaviour
 {
     [Inject] private readonly GamePauseEventDispatcher _gamePauseEventDispatcher = null;
+    [SerializeField] private GameObject _player = null;
+    [SerializeField] private GameObject _playerUi = null;
     [SerializeField] private PlayerMovement _playerMovement = null;
     [SerializeField] private MouseLook _mouseLook = null;
+    [SerializeField] private GunShoot _gunShoot = null;
+
 
     private void Awake()
     {
         CursorService.HideAndLock();
-        _gamePauseEventDispatcher.OnGamePaused += DisablePlayerMovementAndLook;
-        _gamePauseEventDispatcher.OnGameResumed += EnablePlayerMovementAndLook;
+        _gamePauseEventDispatcher.OnGamePaused += DisablePlayerComponents;
+        _gamePauseEventDispatcher.OnGameResumed += EnablePlayerComponents;
     }
 
     private void OnDestroy()
     {
-        _gamePauseEventDispatcher.OnGamePaused -= DisablePlayerMovementAndLook;
-        _gamePauseEventDispatcher.OnGameResumed -= EnablePlayerMovementAndLook;
+        _gamePauseEventDispatcher.OnGamePaused -= DisablePlayerComponents;
+        _gamePauseEventDispatcher.OnGameResumed -= EnablePlayerComponents;
     }
 
     private void Update()
@@ -31,17 +35,29 @@ public class PlaySceneManager : MonoBehaviour
             MenuDialogService.TogglePauseMenuDialog();
     }
 
-    private void EnablePlayerMovementAndLook()
+    private void EnablePlayerComponents()
     {
-        _playerMovement.enabled = true;
-        _mouseLook.enabled = true;
+        if (_player != null)
+        {
+            _playerMovement.enabled = true;
+            _mouseLook.enabled = true;
+            _gunShoot.enabled = true;
+            _playerUi.SetActive(true);
+        }
+
         CursorService.HideAndLock();
     }
 
-    private void DisablePlayerMovementAndLook()
+    private void DisablePlayerComponents()
     {
-        _playerMovement.enabled = false;
-        _mouseLook.enabled = false;
+        if (_player != null)
+        {
+            _playerMovement.enabled = false;
+            _mouseLook.enabled = false;
+            _gunShoot.enabled = false;
+            _playerUi.SetActive(false);
+        }
+
         CursorService.ShowAndUnlock();
     }
 }

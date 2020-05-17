@@ -344,6 +344,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137639690}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &138251286 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5427996026762541577, guid: 3305e2edc642ee44891bce6e030bfe4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5427996027857670069}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e1dc326da2eeb4194c7b78a5fbe6d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &146461892
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -545,7 +557,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5427996027857670069}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 702982669}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ecf6e63216e40f44b36a7728665a57f, type: 3}
@@ -557,7 +569,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 5427996027857670069}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 702982669}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06b50fa672b01b64fbb94400db4e1aaf, type: 3}
@@ -1372,6 +1384,12 @@ Transform:
   m_Father: {fileID: 2104277790}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &702982669 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5427996027706802820, guid: 3305e2edc642ee44891bce6e030bfe4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5427996027857670069}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &828275888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 13723693833211612, guid: ae1970c64cc738a4daf1b07ee60a8c7c,
@@ -2706,8 +2724,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2994d8155e942834088da9aeb1015adf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 702982669}
+  _playerUi: {fileID: 910022760}
   _playerMovement: {fileID: 184683829}
   _mouseLook: {fileID: 184683828}
+  _gunShoot: {fileID: 138251286}
 --- !u!1001 &1378015466
 PrefabInstance:
   m_ObjectHideFlags: 0
