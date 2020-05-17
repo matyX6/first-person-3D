@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 public class Gun : MonoBehaviour
@@ -13,6 +14,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float _range = 100f;
     [SerializeField] private float _fireRate = 15f;
     [SerializeField] private RectTransform _ammoBar = null;
+    [SerializeField] private Text _ammoText = null;
     [SerializeField] private Camera _fpsCamera = null;
     [SerializeField] private ParticleSystem _muzzleFlash = null;
     private float _defaultAmmoBarScaleX = 1f;
@@ -24,7 +26,10 @@ public class Gun : MonoBehaviour
     {
         _currentAmmo = _maxAmmo;
         _defaultAmmoBarScaleX = _ammoBar.localScale.x;
+
         _ammoPickupEventDispatcher.OnAmmoPickedUp += AmmoPickup;
+
+        UpdateAmmoBarAndText();
     }
 
     private void OnDestroy()
@@ -50,7 +55,7 @@ public class Gun : MonoBehaviour
     {
         _muzzleFlash.Play();
         _currentAmmo--;
-        UpdateAmmoBar();
+        UpdateAmmoBarAndText();
 
         RaycastHit hit;
         if (Physics.Raycast(_fpsCamera.transform.position, _fpsCamera.transform.forward, out hit, _range))
@@ -89,13 +94,15 @@ public class Gun : MonoBehaviour
         }
     }
 
-    private void UpdateAmmoBar()
+    private void UpdateAmmoBarAndText()
     {
         float ammoPercentage = (float)_currentAmmo / (float)_maxAmmo;
 
         _ammoBar.localScale = new Vector2(
             _defaultAmmoBarScaleX * ammoPercentage,
             _ammoBar.localScale.y);
+
+        _ammoText.text = _currentAmmo.ToString() + "/" + _maxAmmo.ToString();
     }
 
     private void AmmoPickup(int amount)
@@ -105,6 +112,6 @@ public class Gun : MonoBehaviour
         if (_currentAmmo > _maxAmmo)
             _currentAmmo = _maxAmmo;
 
-        UpdateAmmoBar();
+        UpdateAmmoBarAndText();
     }
 }
