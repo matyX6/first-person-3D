@@ -8,7 +8,7 @@ public class PlaySceneManager : MonoBehaviour
     [SerializeField] private GameObject _playerUi = null;
     [SerializeField] private PlayerMovement _playerMovement = null;
     [SerializeField] private MouseLook _mouseLook = null;
-    [SerializeField] private GunShoot _gunShoot = null;
+    [SerializeField] private Gun _gun = null;
     private bool _inputCheckEnabled = true;
 
 
@@ -44,7 +44,7 @@ public class PlaySceneManager : MonoBehaviour
         {
             _playerMovement.enabled = true;
             _mouseLook.enabled = true;
-            _gunShoot.enabled = true;
+            _gun.enabled = true;
             _playerUi.SetActive(true);
         }
 
@@ -57,7 +57,7 @@ public class PlaySceneManager : MonoBehaviour
         {
             _playerMovement.enabled = false;
             _mouseLook.enabled = false;
-            _gunShoot.enabled = false;
+            _gun.enabled = false;
             _playerUi.SetActive(false);
         }
 

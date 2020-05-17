@@ -1,18 +1,28 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class GunShoot : MonoBehaviour
+public class Gun : MonoBehaviour
 {
     private const string FireAxesName = "Fire1";
 
 
+    [SerializeField] private int _maxAmmo = 100;
     [SerializeField] private float _damage = 10f;
     [SerializeField] private float _range = 100f;
     [SerializeField] private float _fireRate = 15f;
+    [SerializeField] private RectTransform _ammoBar = null;
     [SerializeField] private Camera _fpsCamera = null;
     [SerializeField] private ParticleSystem _muzzleFlash = null;
+    private float _defaultAmmoBarScaleX = 1f;
     private float _nextTimeToFire = 0f;
+    private int _currentAmmo = 100;
 
+
+    private void Start()
+    {
+        _currentAmmo = _maxAmmo;
+        _defaultAmmoBarScaleX = _ammoBar.localScale.x;
+    }
 
     private void Update()
     {
@@ -21,7 +31,7 @@ public class GunShoot : MonoBehaviour
 
     private void HandleGunShotInput()
     {
-        if (Input.GetButton(FireAxesName) && Time.time >= _nextTimeToFire)
+        if (Input.GetButton(FireAxesName) && Time.time >= _nextTimeToFire && _currentAmmo > 0)
         {
             _nextTimeToFire = Time.time + (1f / _fireRate);
             Shoot();
@@ -31,6 +41,8 @@ public class GunShoot : MonoBehaviour
     private void Shoot()
     {
         _muzzleFlash.Play();
+        _currentAmmo--;
+        UpdateAmmoBar();
 
         RaycastHit hit;
         if (Physics.Raycast(_fpsCamera.transform.position, _fpsCamera.transform.forward, out hit, _range))
@@ -67,5 +79,14 @@ public class GunShoot : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private void UpdateAmmoBar()
+    {
+        float ammoPercentage = (float)_currentAmmo / (float)_maxAmmo;
+
+        _ammoBar.localScale = new Vector2(
+            _defaultAmmoBarScaleX * ammoPercentage,
+            _ammoBar.localScale.y);
     }
 }

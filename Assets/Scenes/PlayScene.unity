@@ -2882,7 +2882,7 @@ MonoBehaviour:
   _playerUi: {fileID: 910022760}
   _playerMovement: {fileID: 184683829}
   _mouseLook: {fileID: 184683828}
-  _gunShoot: {fileID: 138251286}
+  _gun: {fileID: 138251286}
 --- !u!1001 &1378015466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3203,7 +3203,7 @@ GameObject:
   - component: {fileID: 1504216892}
   - component: {fileID: 1504216891}
   m_Layer: 5
-  m_Name: ammo-bar-right
+  m_Name: ammo-bar-white
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4528,6 +4528,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5427996026762541577, guid: 3305e2edc642ee44891bce6e030bfe4d,
+        type: 3}
+      propertyPath: _ammoBar
+      value: 
+      objectReference: {fileID: 1504216890}
     - target: {fileID: 5427996027706802816, guid: 3305e2edc642ee44891bce6e030bfe4d,
         type: 3}
       propertyPath: _gravity
