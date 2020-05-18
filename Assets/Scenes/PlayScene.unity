@@ -4294,6 +4294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1356241132}
   - component: {fileID: 1356241133}
+  - component: {fileID: 1356241134}
   m_Layer: 0
   m_Name: play-scene-manager
   m_TagString: Untagged
@@ -4332,6 +4333,18 @@ MonoBehaviour:
   _playerMovement: {fileID: 184683829}
   _mouseLook: {fileID: 184683828}
   _gun: {fileID: 138251286}
+--- !u!114 &1356241134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356241131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 642f16a171435704683f26376216846b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _enemyText: {fileID: 143515198}
   _greenCubeText: {fileID: 1868601898}
   _yellowCubeText: {fileID: 564668631}
