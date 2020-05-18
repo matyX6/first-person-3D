@@ -46,7 +46,7 @@ public class GameProgressManager : MonoBehaviour
     private void UpdateUiElementCount(Text textToUpdate, int maxCount, int currentCount)
     {
         int leftCount = maxCount - currentCount;
-        textToUpdate.text = leftCount + "/" + currentCount;
+        textToUpdate.text = leftCount + "/" + maxCount;
     }
 
     private void UpdateYellowCubesCount()

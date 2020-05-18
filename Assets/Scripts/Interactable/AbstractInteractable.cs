@@ -2,6 +2,9 @@
 
 public abstract class AbstractInteractable : MonoBehaviour
 {
+    protected const string Untagged = "Untagged";
+
+
     [SerializeField] private string _tooltipText = "Interact with";
 
 
