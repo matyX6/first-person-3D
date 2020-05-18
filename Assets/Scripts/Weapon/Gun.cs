@@ -8,7 +8,7 @@ public class Gun : MonoBehaviour
     private const string FireAxesName = "Fire1";
 
 
-    [Inject] private readonly AmmoPickupEventDispatcher _ammoPickupEventDispatcher = null;
+    [Inject] private readonly ObjectPickupEventDispatcher _objectPickupEventDispatcher = null;
     [SerializeField] private int _maxAmmo = 100;
     [SerializeField] private float _damage = 10f;
     [SerializeField] private float _range = 100f;
@@ -27,14 +27,14 @@ public class Gun : MonoBehaviour
         _currentAmmo = _maxAmmo;
         _defaultAmmoBarScaleX = _ammoBar.localScale.x;
 
-        _ammoPickupEventDispatcher.OnAmmoPickedUp += AmmoPickup;
+        _objectPickupEventDispatcher.OnAmmoPickedUp += AmmoPickup;
 
         UpdateAmmoBarAndText();
     }
 
     private void OnDestroy()
     {
-        _ammoPickupEventDispatcher.OnAmmoPickedUp -= AmmoPickup;
+        _objectPickupEventDispatcher.OnAmmoPickedUp -= AmmoPickup;
     }
 
     private void Update()
