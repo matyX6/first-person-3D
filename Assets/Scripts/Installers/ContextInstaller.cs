@@ -6,5 +6,6 @@ public class ContextInstaller : MonoInstaller<ContextInstaller>
     {
         Container.Bind<GamePauseEventDispatcher>().AsSingle();
         Container.Bind<ObjectPickupEventDispatcher>().AsSingle();
+        Container.Bind<EnemyKilledEventDispatcher>().AsSingle();
     }
 }

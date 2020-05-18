@@ -1,8 +1,13 @@
 ﻿using DG.Tweening;
 using UnityEngine;
+using Zenject;
 
 public class Target : MonoBehaviour, IDamageable
 {
+    private const string Untagged = "Untagged";
+
+
+    [Inject] private readonly EnemyKilledEventDispatcher _enemyKilledEventDispatcher = null;
     [SerializeField] protected float _maxHealth = 100f;
     [SerializeField] private float _hitScaleMultiplier = 1.3f;
     protected float _currentHealth = 100f;
@@ -29,6 +34,8 @@ public class Target : MonoBehaviour, IDamageable
 
     public void Die()
     {
+        gameObject.tag = Untagged;
+        _enemyKilledEventDispatcher.NotifyEnemyKilledListeners();
         Destroy(gameObject);
     }
 

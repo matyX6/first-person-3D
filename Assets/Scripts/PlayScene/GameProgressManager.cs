@@ -11,6 +11,7 @@ public class GameProgressManager : MonoBehaviour
 
     [Inject] private readonly ObjectPickupEventDispatcher _objectPickupEventDispatcher = null;
     [Inject] private readonly GamePauseEventDispatcher _gamePauseEventDispatcher = null;
+    [Inject] private readonly EnemyKilledEventDispatcher _enemyKilledEventDispatcher = null;
     [SerializeField] private Text _enemyText = null;
     [SerializeField] private Text _greenCubeText = null;
     [SerializeField] private Text _yellowCubeText = null;
@@ -26,12 +27,14 @@ public class GameProgressManager : MonoBehaviour
     {
         _objectPickupEventDispatcher.OnGreenCubePickedUp += UpdateGreenCubesCount;
         _objectPickupEventDispatcher.OnYellowCubePickedUp += UpdateYellowCubesCount;
+        _enemyKilledEventDispatcher.OnEnemyKilled += UpdateEnemiesKilledCount;
     }
 
     private void OnDestroy()
     {
         _objectPickupEventDispatcher.OnGreenCubePickedUp -= UpdateGreenCubesCount;
         _objectPickupEventDispatcher.OnYellowCubePickedUp -= UpdateYellowCubesCount;
+        _enemyKilledEventDispatcher.OnEnemyKilled -= UpdateEnemiesKilledCount;
     }
 
     private void Start()
