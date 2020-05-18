@@ -18,6 +18,7 @@ public class GamePauseManager : MonoBehaviour
         _gamePauseEventDispatcher.OnGamePaused += DisablePlayerComponents;
         _gamePauseEventDispatcher.OnGameResumed += EnablePlayerComponents;
         _gamePauseEventDispatcher.OnPlayerDeath += DisableInputCheck;
+        _gamePauseEventDispatcher.OnPlayerVictory += DisableInputCheck;
     }
 
     private void OnDestroy()
@@ -25,6 +26,7 @@ public class GamePauseManager : MonoBehaviour
         _gamePauseEventDispatcher.OnGamePaused -= DisablePlayerComponents;
         _gamePauseEventDispatcher.OnGameResumed -= EnablePlayerComponents;
         _gamePauseEventDispatcher.OnPlayerDeath -= DisableInputCheck;
+        _gamePauseEventDispatcher.OnPlayerVictory -= DisableInputCheck;
     }
 
     private void Start()

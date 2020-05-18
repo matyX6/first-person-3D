@@ -10,6 +10,7 @@ public class GameProgressManager : MonoBehaviour
 
 
     [Inject] private readonly ObjectPickupEventDispatcher _objectPickupEventDispatcher = null;
+    [Inject] private readonly GamePauseEventDispatcher _gamePauseEventDispatcher = null;
     [SerializeField] private Text _enemyText = null;
     [SerializeField] private Text _greenCubeText = null;
     [SerializeField] private Text _yellowCubeText = null;
@@ -73,8 +74,11 @@ public class GameProgressManager : MonoBehaviour
     private void CheckIfLevelPassed()
     {
         bool levelPassed = _enemies.Length == 0 && _greenCubes.Length == 0 && _yellowCubes.Length == 0;
-        if (levelPassed) { }
-            //win
+        if (levelPassed)
+        {
+            _gamePauseEventDispatcher.NotifyVictoryListeners();
+            MenuDialogService.ShowVictoryScreen();
+        }
     }
 
     private void UpdateInitialValues()
