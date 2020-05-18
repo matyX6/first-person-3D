@@ -1,30 +1,14 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
-public class PlaySceneManager : MonoBehaviour
+public class GamePauseManager : MonoBehaviour
 {
-    private const string EnemyTag = "Enemy";
-    private const string GreenCubeTag = "GreenCube";
-    private const string YellowCubeTag = "YellowCube";
-
-
     [Inject] private readonly GamePauseEventDispatcher _gamePauseEventDispatcher = null;
     [SerializeField] private GameObject _player = null;
     [SerializeField] private GameObject _playerUi = null;
     [SerializeField] private PlayerMovement _playerMovement = null;
     [SerializeField] private MouseLook _mouseLook = null;
     [SerializeField] private Gun _gun = null;
-    [Header("Ui number elements")]
-    [SerializeField] private Text _enemyText = null;
-    [SerializeField] private Text _greenCubeText = null;
-    [SerializeField] private Text _yellowCubeText = null;
-    private int _enemiesMax = 0;
-    private int _greenCubesMax = 0;
-    private int _yellowCubesMax = 0;
-    GameObject[] enemies = null;
-    GameObject[] greenCubes = null;
-    GameObject[] yellowCubes = null;
     private bool _inputCheckEnabled = true;
 
 
@@ -36,40 +20,15 @@ public class PlaySceneManager : MonoBehaviour
         _gamePauseEventDispatcher.OnPlayerDeath += DisableInputCheck;
     }
 
-    private void Start()
-    {
-        CheckForEnemiesAndCubes();
-
-        _enemiesMax = enemies.Length;
-        _greenCubesMax = greenCubes.Length;
-        _yellowCubesMax = yellowCubes.Length;
-
-        UpdateUiText();
-    }
-
-    private void CheckForEnemiesAndCubes()
-    {
-        enemies = GameObject.FindGameObjectsWithTag(EnemyTag);
-        greenCubes = GameObject.FindGameObjectsWithTag(GreenCubeTag);
-        yellowCubes = GameObject.FindGameObjectsWithTag(YellowCubeTag);
-    }
-
-    private void UpdateUiText()
-    {
-        int killedEnemies = _enemiesMax - enemies.Length;
-        int collectedGreenCubes = _greenCubesMax - greenCubes.Length;
-        int collectedYellowCubes = _yellowCubesMax - yellowCubes.Length;
-
-        _enemyText.text = killedEnemies + "/" + _enemiesMax;
-        _greenCubeText.text = collectedGreenCubes + "/" + _greenCubesMax;
-        _yellowCubeText.text = collectedYellowCubes + "/" + _yellowCubesMax;
-    }
-
     private void OnDestroy()
     {
         _gamePauseEventDispatcher.OnGamePaused -= DisablePlayerComponents;
         _gamePauseEventDispatcher.OnGameResumed -= EnablePlayerComponents;
         _gamePauseEventDispatcher.OnPlayerDeath -= DisableInputCheck;
+    }
+
+    private void Start()
+    {
     }
 
     private void Update()
