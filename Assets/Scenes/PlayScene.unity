@@ -2264,20 +2264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3e0c351ba3bd34a869bc4981187751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &413485799
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3840,22 +3826,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3e0c351ba3bd34a869bc4981187751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &743148680
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4161,10 +4131,6 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec3e0c351ba3bd34a869bc4981187751, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &798112107
@@ -6957,12 +6923,6 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec3e0c351ba3bd34a869bc4981187751, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &1288598252
@@ -11040,16 +11000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3e0c351ba3bd34a869bc4981187751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1983134832
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11328,18 +11278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec3e0c351ba3bd34a869bc4981187751, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &1993736849
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11602,14 +11540,6 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec3e0c351ba3bd34a869bc4981187751, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!65 &2058895050
@@ -12337,6 +12267,11 @@ PrefabInstance:
       propertyPath: _ammoText
       value: 
       objectReference: {fileID: 1276072621}
+    - target: {fileID: 5427996026762541577, guid: 3305e2edc642ee44891bce6e030bfe4d,
+        type: 3}
+      propertyPath: _maxAmmo
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 5427996027706802818, guid: 3305e2edc642ee44891bce6e030bfe4d,
         type: 3}
       propertyPath: _healthBar
@@ -12692,8 +12627,6 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec3e0c351ba3bd34a869bc4981187751, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!33 &8567802884693077671

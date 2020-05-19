@@ -9567,7 +9567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e1dc326da2eeb4194c7b78a5fbe6d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxAmmo: 32
+  _maxAmmo: 64
   _damage: 10
   _range: 100
   _fireRate: 15
