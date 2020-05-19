@@ -29,19 +29,27 @@ public class GamePauseManager : MonoBehaviour
         _gamePauseEventDispatcher.OnPlayerVictory -= DisableInputCheck;
     }
 
-    private void Start()
-    {
-    }
-
     private void Update()
     {
         CheckForPauseInput();
+        CheckForInventoryInput();
     }
 
     private void CheckForPauseInput()
     {
         if (Input.GetKeyDown(KeyCode.Escape) && _inputCheckEnabled)
             MenuDialogService.TogglePauseMenuDialog();
+    }
+
+    private void CheckForInventoryInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Tab) && _inputCheckEnabled)
+        {
+            bool menuActive = MenuDialogContainer.Instance.gameObject.activeSelf;
+            bool inventoryActive = InventoryContainer.Instance.gameObject.activeSelf;
+
+            InventoryContainer.Instance.gameObject.SetActive(!menuActive && !inventoryActive);
+        }
     }
 
     private void EnablePlayerComponents()
