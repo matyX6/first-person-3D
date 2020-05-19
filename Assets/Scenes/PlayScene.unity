@@ -10514,7 +10514,7 @@ PrefabInstance:
     - target: {fileID: 6793834139910593743, guid: 61f59320057db8642b329829396c7397,
         type: 3}
       propertyPath: m_Name
-      value: health-zone-green (1)
+      value: health-zone-green
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61f59320057db8642b329829396c7397, type: 3}
@@ -11521,14 +11521,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1273827028, guid: 3305e2edc642ee44891bce6e030bfe4d, type: 3}
-      propertyPath: m_Volume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1273827028, guid: 3305e2edc642ee44891bce6e030bfe4d, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5427996026762541577, guid: 3305e2edc642ee44891bce6e030bfe4d,
         type: 3}
       propertyPath: _ammoBar
@@ -11539,11 +11531,6 @@ PrefabInstance:
       propertyPath: _ammoText
       value: 
       objectReference: {fileID: 1276072621}
-    - target: {fileID: 5427996026762541577, guid: 3305e2edc642ee44891bce6e030bfe4d,
-        type: 3}
-      propertyPath: _gunShotAudioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 905fd316e3e2fd1438811249ec387fa9, type: 3}
     - target: {fileID: 5427996027706802818, guid: 3305e2edc642ee44891bce6e030bfe4d,
         type: 3}
       propertyPath: _healthBar

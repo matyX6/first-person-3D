@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 13723693833211614}
   - component: {fileID: 13723693833211613}
   - component: {fileID: 13723693833211608}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: AMMO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.8
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &13723693833211608
 MonoBehaviour:
@@ -105,3 +105,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tooltipText: '[E] Pick up'
+  _inventoryItem: {fileID: 0}
+  _ammoAmount: 32

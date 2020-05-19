@@ -9576,7 +9576,7 @@ MonoBehaviour:
   _fpsCamera: {fileID: 5427996027372475208}
   _muzzleFlash: {fileID: 5301960200819615894}
   _audioSource: {fileID: 1273827028}
-  _gunShotAudioClip: {fileID: 8300000, guid: c0a2b4d543b948946ba4fc8657a330c8, type: 3}
+  _gunShotAudioClip: {fileID: 8300000, guid: 905fd316e3e2fd1438811249ec387fa9, type: 3}
 --- !u!82 &1273827028
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9588,8 +9588,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10507,7 +10507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1847944122594db42a64a836365f6731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 5
+  _range: 8
   _fpsCamera: {fileID: 5427996027372475208}
 --- !u!114 &5427996027706802818
 MonoBehaviour:
