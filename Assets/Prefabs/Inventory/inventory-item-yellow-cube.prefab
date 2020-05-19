@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab38ec4d2a0a206489b7c74f32b644e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  _itemIcon: {fileID: 21300000, guid: 305c12a330e76ae4c85c014f072e60e3, type: 3}
   _maxStacks: 10
