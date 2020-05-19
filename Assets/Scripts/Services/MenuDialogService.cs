@@ -13,7 +13,7 @@ public class MenuDialogService
         actionConfirm = () => SceneManagerService.LoadPlayScene();
 
         MenuDialogContainer.Instance.ShowDialog(
-            "Open Your Eyes",
+            "Mister Cylinder",
             "Play",
             "Quit",
             actionConfirm);
