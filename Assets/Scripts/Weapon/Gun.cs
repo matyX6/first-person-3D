@@ -20,10 +20,13 @@ public class Gun : MonoBehaviour
     private float _defaultAmmoBarScaleX = 1f;
     private float _nextTimeToFire = 0f;
     private int _currentAmmo = 100;
+    private LayerMask _layerToIgnore;
 
 
     private void Start()
     {
+        _layerToIgnore = LayerMask.GetMask("Trigger");
+
         _currentAmmo = _maxAmmo;
         _defaultAmmoBarScaleX = _ammoBar.localScale.x;
 
@@ -58,7 +61,7 @@ public class Gun : MonoBehaviour
         UpdateAmmoBarAndText();
 
         RaycastHit hit;
-        if (Physics.Raycast(_fpsCamera.transform.position, _fpsCamera.transform.forward, out hit, _range))
+        if (Physics.Raycast(_fpsCamera.transform.position, _fpsCamera.transform.forward, out hit, _range, ~_layerToIgnore))
         {
             Debug.Log(hit.transform.name);
             HitImpactEffect(hit);
