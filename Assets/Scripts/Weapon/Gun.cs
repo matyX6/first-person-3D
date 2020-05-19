@@ -17,6 +17,8 @@ public class Gun : MonoBehaviour
     [SerializeField] private Text _ammoText = null;
     [SerializeField] private Camera _fpsCamera = null;
     [SerializeField] private ParticleSystem _muzzleFlash = null;
+    [SerializeField] private AudioSource _audioSource = null;
+    [SerializeField] private AudioClip _gunShotAudioClip = null;
     private float _defaultAmmoBarScaleX = 1f;
     private float _nextTimeToFire = 0f;
     private int _currentAmmo = 100;
@@ -56,6 +58,7 @@ public class Gun : MonoBehaviour
 
     private void Shoot()
     {
+        _audioSource.PlayOneShot(_gunShotAudioClip);
         _muzzleFlash.Play();
         _currentAmmo--;
         UpdateAmmoBarAndText();
