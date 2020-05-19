@@ -2,7 +2,7 @@
 
 public class GamePauseEventDispatcher
 {
-    public event Action OnGamePaused;
+    public event Action<bool> OnGamePaused;
     public event Action OnGameResumed;
     public event Action OnPlayerDeath;
     public event Action OnPlayerVictory;
@@ -18,9 +18,9 @@ public class GamePauseEventDispatcher
         OnPlayerDeath?.Invoke();
     }
 
-    public void NotifyGamePausedListeners()
+    public void NotifyGamePausedListeners(bool enableUi)
     {
-        OnGamePaused?.Invoke();
+        OnGamePaused?.Invoke(enableUi);
     }
 
     public void NotifyGameResumedListeners()

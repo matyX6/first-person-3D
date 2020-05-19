@@ -65,14 +65,14 @@ public class GamePauseManager : MonoBehaviour
         CursorService.HideAndLock();
     }
 
-    private void DisablePlayerComponents()
+    private void DisablePlayerComponents(bool enableUi)
     {
         if (_player != null)
         {
             _playerMovement.enabled = false;
             _mouseLook.enabled = false;
             _gun.enabled = false;
-            _playerUi.SetActive(false);
+            _playerUi.SetActive(enableUi);
         }
 
         CursorService.ShowAndUnlock();

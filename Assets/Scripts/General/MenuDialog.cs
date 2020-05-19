@@ -37,7 +37,7 @@ public class MenuDialog : MonoBehaviour
         if(InventoryContainer.Instance != null)
         InventoryContainer.Instance.gameObject.SetActive(false);
 
-        _gamePauseEventDispatcher.NotifyGamePausedListeners();
+        _gamePauseEventDispatcher.NotifyGamePausedListeners(false);
     }
 
     private void OnDisable()

@@ -36,7 +36,7 @@ public class Inventory : MonoBehaviour
 
     private void OnEnable()
     {
-        _gamePauseEventDispatcher.NotifyGamePausedListeners();
+        _gamePauseEventDispatcher.NotifyGamePausedListeners(true);
     }
 
     private void OnDisable()
