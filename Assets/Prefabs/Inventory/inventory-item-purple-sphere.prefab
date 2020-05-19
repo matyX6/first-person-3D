@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _itemIcon: {fileID: 21300000, guid: 16634d7dc5e4d8a49af3b2b7b0ab8dc0, type: 3}
-  _maxStacks: 3
+  _maxStacks: 10
