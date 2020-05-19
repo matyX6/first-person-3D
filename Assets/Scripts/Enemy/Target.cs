@@ -32,7 +32,7 @@ public class Target : MonoBehaviour, IDamageable
         AnimateDamageTaken();
     }
 
-    public void Die()
+    public virtual void Die()
     {
         gameObject.tag = Untagged;
         _enemyKilledEventDispatcher.NotifyEnemyKilledListeners();
