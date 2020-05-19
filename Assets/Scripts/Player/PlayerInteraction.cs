@@ -8,7 +8,13 @@ public class PlayerInteraction : MonoBehaviour
 
     [SerializeField] private float _range = 5f;
     [SerializeField] private Camera _fpsCamera = null;
+    private LayerMask _layerToIgnore;
 
+
+    private void Start()
+    {
+        _layerToIgnore = LayerMask.GetMask("Trigger");
+    }
 
     private void Update()
     {
@@ -18,7 +24,7 @@ public class PlayerInteraction : MonoBehaviour
     private void LookForInteraction()
     {
         RaycastHit hit;
-        if (Physics.Raycast(_fpsCamera.transform.position, _fpsCamera.transform.forward, out hit, _range))
+        if (Physics.Raycast(_fpsCamera.transform.position, _fpsCamera.transform.forward, out hit, _range, ~_layerToIgnore))
         {
             AbstractInteractable abstractInteractable = hit.transform.GetComponent<AbstractInteractable>();
             if (abstractInteractable != null)

@@ -10507,7 +10507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1847944122594db42a64a836365f6731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _range: 8
+  _range: 9
   _fpsCamera: {fileID: 5427996027372475208}
 --- !u!114 &5427996027706802818
 MonoBehaviour:
