@@ -11,5 +11,6 @@ public class InventoryContainer : MonoBehaviour
     private void Awake()
     {
         Instance = _instance;
+        _instance.Initialize();
     }
 }

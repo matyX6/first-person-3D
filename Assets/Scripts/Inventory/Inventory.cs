@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
             Debug.Log("Inventory full!");
     }
 
-    private void Start()
+    public void Initialize()
     {
         _inventorySlotsList = _slotsParent.GetComponentsInChildren<InventorySlot>().ToList();
     }

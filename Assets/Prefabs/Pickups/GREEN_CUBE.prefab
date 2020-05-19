@@ -105,3 +105,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tooltipText: '[E] Pick up'
+  _inventoryItem: {fileID: 6213292687184679415, guid: a4a4b52b2f61e63469d36fd9350e471c,
+    type: 3}

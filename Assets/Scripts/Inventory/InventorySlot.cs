@@ -15,7 +15,7 @@ public class InventorySlot : MonoBehaviour
             return true;
         }
 
-        bool stackFull = _stack.Count >= item.MaxStacks;
+        bool stackFull = _stack.Count >= _stack.ElementAt(0).MaxStacks;
         bool stackTypeEquals = _stack.ElementAt(0).ItemIndex == item.ItemIndex;
 
         if (!stackFull && stackTypeEquals)
