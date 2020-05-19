@@ -8,4 +8,5 @@ public abstract class AbstractInventoryItem : MonoBehaviour
 
     public abstract InventoryItem ItemIndex { get;}
     public int MaxStacks => _maxStacks;
+    public Sprite ItemIcon => _itemIcon;
 }
