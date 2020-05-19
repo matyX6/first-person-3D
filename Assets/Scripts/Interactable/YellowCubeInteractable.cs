@@ -9,6 +9,7 @@ public class YellowCubeInteractable : AbstractInteractable
     public override void Interact()
     {
         Debug.Log("Interact with yellow cube.");
+        InventoryContainer.Instance.AddItemToInventory(InventoryItem);
         gameObject.tag = Untagged;
         _objectPickupEventDispatcher.NotifyYellowCubePickedUpListeners();
         Destroy(gameObject);
