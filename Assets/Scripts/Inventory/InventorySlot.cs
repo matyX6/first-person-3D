@@ -9,6 +9,7 @@ public class InventorySlot : MonoBehaviour
 
 
     [SerializeField] private Image _slotIcon = null;
+    [SerializeField] private Image _clearSlotIcon = null;
     [SerializeField] private Text _slotItemsNumber = null;
 
 
@@ -34,14 +35,21 @@ public class InventorySlot : MonoBehaviour
         return false;
     }
 
+    public void ClearSlot()
+    {
+        _stack.Clear();
+        DisableSlotVisuals();
+    }
+
     private void UpdateItemSlot(AbstractInventoryItem item)
     {
-        UpdateSlotIcon(_stack.ElementAt(0));
+        UpdateIcons(_stack.ElementAt(0));
         UpdateItemCount();
     }
 
-    private void UpdateSlotIcon(AbstractInventoryItem item)
+    private void UpdateIcons(AbstractInventoryItem item)
     {
+        _clearSlotIcon.enabled = true;
         _slotIcon.enabled = true;
         _slotIcon.sprite = item.ItemIcon;
     }
@@ -50,5 +58,12 @@ public class InventorySlot : MonoBehaviour
     {
         _slotItemsNumber.enabled = true;
         _slotItemsNumber.text = _stack.Count.ToString();
+    }
+
+    private void DisableSlotVisuals()
+    {
+        _clearSlotIcon.enabled = false;
+        _slotIcon.enabled = false;
+        _slotItemsNumber.enabled = false;
     }
 }
