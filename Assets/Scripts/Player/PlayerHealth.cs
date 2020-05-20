@@ -3,9 +3,13 @@ using Zenject;
 
 public class PlayerHealth : MonoBehaviour
 {
+    private const string HealthLossTriggerName = "health-loss";
+
+
     [Inject] private readonly GamePauseEventDispatcher _gamePauseEventDispatcher = null;
     [SerializeField] private float _maxHealth = 100f;
     [SerializeField] private RectTransform _healthBar = null;
+    [SerializeField] private Animator _healthLoss = null;
     private float _currentHealth = 100f;
     private float _defaultHealthBarScaleX = 1f;
     private bool _healthChangeEnabled = true;
@@ -15,6 +19,9 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!_healthChangeEnabled)
             return;
+
+        if (changeAmount < 0)
+            _healthLoss.SetTrigger(HealthLossTriggerName);
 
         _currentHealth += changeAmount;
 
