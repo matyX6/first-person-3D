@@ -12267,11 +12267,6 @@ PrefabInstance:
       propertyPath: _ammoText
       value: 
       objectReference: {fileID: 1276072621}
-    - target: {fileID: 5427996026762541577, guid: 3305e2edc642ee44891bce6e030bfe4d,
-        type: 3}
-      propertyPath: _maxAmmo
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 5427996027706802818, guid: 3305e2edc642ee44891bce6e030bfe4d,
         type: 3}
       propertyPath: _healthBar

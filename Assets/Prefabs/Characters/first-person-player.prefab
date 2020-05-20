@@ -10417,7 +10417,7 @@ GameObject:
   - component: {fileID: 5427996027706802819}
   - component: {fileID: 5427996027706802818}
   - component: {fileID: 5427996027706802829}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: first-person-player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
